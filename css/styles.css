@@ -162,7 +162,6 @@ h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 18px;
-  /* autocheck error */
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -189,9 +188,41 @@ h6 {
   color: var(--ocean-pressed-color);
 }
 
-/* .nav-list .link.active {
-  color: var(--ocean-pressed-color);
-} */
+.nav-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--navyblue-dark-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--ocean-pressed-color);
+  border-radius: 2px;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link:current::after {
+  opacity: 1;
+}
+
 .adress {
   font-style: normal;
   margin-left: auto;
@@ -481,6 +512,30 @@ h6 {
   flex-basis: calc((100% - 2 * 24px) / 3);
 }
 
+.example-item:is(:hover, :focus) .portfolio-text {
+  transform: translateY(0);
+}
+
+.img-portfolio {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-text {
+  position: absolute;
+  top: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cloud-light-color);
+  background-color: var(--iris-brand-color);
+  padding: 40px;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms linear;
+}
+
 .link-portfolio {
   display: block;
 }
@@ -513,4 +568,37 @@ h6 {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-color: var(--ocean-pressed-color);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+.modal {
+  width: 408px;
+  min-height: 576px;
+  background-color: #FCFCFC;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-close {
+  display: block;
+  margin-left: auto;
+  background: #E7E9FC;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
