@@ -208,7 +208,7 @@ h6 {
   display: block;
   opacity: 0;
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   height: 4px;
   width: 100%;
@@ -219,17 +219,13 @@ h6 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-link.activ {
+  color: var(--ocean-pressed-color);
+}
+
 .active::after {
   content: '';
-  display: block;
   opacity: 1;
-  height: 4px;
-  width: 100%;
-  background-color: var(--ocean-pressed-color);
-  border-radius: 2px;
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover::after,
@@ -251,6 +247,8 @@ h6 {
 .address-link {
   color: var(--slate-text-color);
   padding: 24px 0 24px 0;
+  transition-property: color;
+  transition-duration: 250ms;
 }
 
 .address-link:hover,
@@ -290,6 +288,8 @@ h6 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 16px 32px;
+  transition-property: background-color;
+  transition-duration: 250ms;
 }
 
 /* --- Our features section --- */
@@ -389,6 +389,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: background-color;
+  transition-duration: 250ms;
 }
 
 .team-soc-link:hover,
@@ -418,6 +420,8 @@ h6 {
   justify-content: center;
   border: 1px solid #8e8f99;
   border-radius: 4px;
+  transition-property: border-color, color;
+  transition-duration: 250ms;
 }
 
 .link-customers:is(:hover, :focus) {
@@ -497,6 +501,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: background-color;
+  transition-duration: 250ms;
 }
 
 .footer-soc-link:is(:hover, :focus) {
@@ -509,6 +515,11 @@ h6 {
   justify-content: center;
   gap: 24px;
   margin: 0 auto 72px;
+}
+
+.button {
+  transition-property: color, background-color, box-shadow, border-color;
+  transition-duration: 250ms;
 }
 
 .section.examples {
@@ -526,7 +537,7 @@ h6 {
   flex-basis: calc((100% - 2 * 24px) / 3);
 }
 
-.example-item:is(:hover, :focus) .portfolio-text {
+.link-portfolio:is(:hover, :focus) .portfolio-text {
   transform: translateY(0);
 }
 
@@ -552,6 +563,8 @@ h6 {
 
 .link-portfolio {
   display: block;
+  transition-property: background, box-shadow;
+  transition-duration: 250ms;
 }
 
 .link-portfolio:is(:hover, :focus),
@@ -625,6 +638,10 @@ h6 {
 .modal-close:hover {
   background-color: var(--ocean-pressed-color);
   color: var(--main-color);
+}
+
+.modal-button {
+  fill: currentColor;
 }
 
 .is-hidden {
